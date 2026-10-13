@@ -2,6 +2,8 @@
 
 image-prompt-schema is a structural validator for segmented image prompts: it enforces a `subject / style / composition / constraints / negative` schema, checks constraint `k=v` grammar, and catches duplicates and conflicts before a prompt batch hits your generation pipeline. Text in, findings out — it never renders or inspects image files. Confidence: High (≥80%) for all eleven rules, per the 65-case suite.
 
+<p align="center"><img src="docs/demo.gif" alt="demo" width="720"></p>
+
 ## Problem
 
 Image prompts degenerate into prose soup: the subject is buried in line 4, two `aspect` constraints contradict each other, the "negative" section leaks into the style, and nobody notices until a 500-prompt batch renders wrong. Batch pipelines make it worse — one malformed prompt fails silently or, worse, renders expensively. A schema gate at prompt-authoring time costs seconds and prevents the whole class.
